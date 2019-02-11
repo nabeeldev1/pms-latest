@@ -1,0 +1,65 @@
+<app-layout></app-layout>
+<div class="example-container">
+  <h4>Add New Project</h4>
+  <mat-form-field>
+    <input matInput placeholder="Name" name="name" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Select Client">
+      <mat-option value="option">Shane</mat-option>
+      <mat-option value="option">James</mat-option>
+      <mat-option value="option">John</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Business Office Contact">
+      <mat-option value="option">Amber</mat-option>
+      <mat-option value="option">Clark</mat-option>
+      <mat-option value="option">Mike</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Billing Payment Mode">
+      <mat-option value="option">Cash</mat-option>
+      <mat-option value="option">Credit Card</mat-option>
+      <mat-option value="option">Paypal</mat-option>
+      <mat-option value="option">Stripe</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Development Managers">
+      <mat-option value="option">Mike</mat-option>
+      <mat-option value="option">Jeorge</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Attachment Date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker1" placeholder="Start Date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker2" placeholder="Estimated Delivery Date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Select Status">
+      <mat-option value="option">Active</mat-option>
+      <mat-option value="option">Inactive</mat-option>
+      <mat-option value="option">On Hold</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Description"></textarea>
+  </mat-form-field>
+  <div class="form-actions action-bar text-right">
+    <button mat-stroked-button>Cancel</button>
+    &nbsp;
+    <button mat-stroked-button color="primary">Save</button>
+  </div>
+</div>

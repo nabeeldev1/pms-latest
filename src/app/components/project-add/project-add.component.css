@@ -1,0 +1,27 @@
+/* .example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+} */
+
+/* .example-from {
+  padding: 20px;
+} */
+
+.example-container {
+  display: flex;
+  padding: 60px;
+  margin-left: 370px;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 60%;
+}
+
+.form-actions {
+  display: inline; 
+  align-items: right;
+}
