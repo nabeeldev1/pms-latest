@@ -1,39 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProjectsModel } from '../../models/projects.model';
 import { ProjectService } from '../../services/project.service';
 
-const ELEMENT_DATA: ProjectsModel[] = [
-  { id: 1, business_office_id: 1, business: 'Sample', client: 'Shane', client_id: 2, name: 'ABC', number: 111, 
-    cost: 2350, start_date: new Date(), updated_at: new Date(), payment_mode: 'Online', run_level_name: '1',
-    created_at: new Date(), created_by: 'James', deleted_at: new Date(), end_date: new Date(), 
-    estimated_delivery_date: new Date()
-  },
-  { id: 2, business_office_id: 1, business: 'Sample', client: 'Shane', client_id: 2, name: 'ABC', number: 111, 
-    cost: 2350, start_date: new Date(), updated_at: new Date(), payment_mode: 'Online', run_level_name: '1',
-    created_at: new Date(), created_by: 'James', deleted_at: new Date(), end_date: new Date(), 
-    estimated_delivery_date: new Date()
-  },
-  { id: 3, business_office_id: 1, business: 'Sample', client: 'Shane', client_id: 2, name: 'ABC', number: 111, 
-    cost: 2350, start_date: new Date(), updated_at: new Date(), payment_mode: 'Online', run_level_name: '1',
-    created_at: new Date(), created_by: 'James', deleted_at: new Date(), end_date: new Date(), 
-    estimated_delivery_date: new Date()
-  },
-  { id: 4, business_office_id: 1, business: 'Sample', client: 'Shane', client_id: 2, name: 'ABC', number: 111, 
-    cost: 2350, start_date: new Date(), updated_at: new Date(), payment_mode: 'Online', run_level_name: '1',
-    created_at: new Date(), created_by: 'James', deleted_at: new Date(), end_date: new Date(), 
-    estimated_delivery_date: new Date()
-  },
-  { id: 5, business_office_id: 1, business: 'Sample', client: 'Shane', client_id: 2, name: 'ABC', number: 111, 
-    cost: 2350, start_date: new Date(), updated_at: new Date(), payment_mode: 'Online', run_level_name: '1',
-    created_at: new Date(), created_by: 'James', deleted_at: new Date(), end_date: new Date(), 
-    estimated_delivery_date: new Date()
-  },
-  { id: 6, business_office_id: 1, business: 'Sample', client: 'Shane', client_id: 2, name: 'ABC', number: 111, 
-    cost: 2350, start_date: new Date(), updated_at: new Date(), payment_mode: 'Online', run_level_name: '1',
-    created_at: new Date(), created_by: 'James', deleted_at: new Date(), end_date: new Date(), 
-    estimated_delivery_date: new Date()
-  }
-];
+import {MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-project',
@@ -41,18 +10,27 @@ const ELEMENT_DATA: ProjectsModel[] = [
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
+  @ViewChild(MatSort) sort: MatSort;
 
+  dataSource: any;
+  opened: boolean = true;
   displayedColumns: string[] = ['id', 'name', 'business', 'client', 'cost', 'payment_mode', 'start_date', 'estimated_delivery_date'];
-  dataSource = ELEMENT_DATA;
 
-  opened = false;
 
-  constructor(projectService: ProjectService) { 
-    // let data = projectService.getJSON();
-    // console.log('Data: ', data);
+  constructor(public projectService: ProjectService) {
+    this.dataSource = new MatTableDataSource(this.projectService.getProjects());    
   }
 
   ngOnInit() {
+    
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = (filterValue || '').trim().toLowerCase();
   }
 
 }

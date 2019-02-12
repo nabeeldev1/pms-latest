@@ -1,9 +1,9 @@
 export class ProjectsModel {
     id: number;
     business_office_id: number;
-    business: any;
+    business?: any;
     client: any;
-    client_id;
+    client_id?: number;
     name: string;
     number: number;
     cost: number;
@@ -16,4 +16,8 @@ export class ProjectsModel {
     deleted_at: Date;
     end_date: Date;
     estimated_delivery_date: Date;
+    attachment_date: Date;
+    vertical?;
+    description?;
+    manager?;
 }

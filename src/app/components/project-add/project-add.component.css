@@ -1,27 +1,28 @@
-/* .example-icon {
-  padding: 0 14px;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
-} */
-
-/* .example-from {
-  padding: 20px;
-} */
-
-.example-container {
+.project-container {
   display: flex;
   padding: 60px;
-  margin-left: 370px;
   flex-direction: column;
+  background-color: #F5F5F5;
 }
 
-.example-container > * {
-  width: 60%;
+.project-container > * {
+  width: 100%;
+}
+
+.resource-container {
+  border: 1px solid lightgray;
+  display: flex;
+  padding: 15px;
+  margin: 5px 10px 10px 0px;
+  flex-direction: column;
+  background-color: white;
 }
 
 .form-actions {
   display: inline; 
   align-items: right;
+}
+
+mat-form-field {
+  width: 100%;
 }

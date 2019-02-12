@@ -1,11 +1,9 @@
-.toggle-button {
-  font-size: 20px;
-  color: white;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
 .mat-toolbar {
   background: #455a64;
   color: hsla(0, 0%, 100%, .87);
+}
+
+.title-link {
+  color: white;
+  cursor: pointer;
 }
