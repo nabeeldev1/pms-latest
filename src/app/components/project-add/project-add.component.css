@@ -1,6 +1,6 @@
 .project-container {
   display: flex;
-  padding: 60px;
+  padding: 20px;
   flex-direction: column;
   background-color: #F5F5F5;
 }

@@ -22,7 +22,7 @@ export class ProjectComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
   ngAfterViewInit() {
@@ -30,7 +30,7 @@ export class ProjectComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource.filter = (filterValue || '').trim().toLowerCase();
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }
