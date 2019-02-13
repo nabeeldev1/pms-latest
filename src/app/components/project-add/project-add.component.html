@@ -60,7 +60,7 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="col-sm-6">
+      <!-- <div class="col-sm-6">
         <div class="form-group">
           <mat-form-field>
             <mat-select placeholder="Development Managers" name="manager" [(ngModel)]="model.manager">
@@ -69,8 +69,8 @@
             </mat-select>
           </mat-form-field>
         </div>
-      </div>
-      <div class="col-sm-6">
+      </div> -->
+      <!-- <div class="col-sm-6">
         <div class="form-group">
           <mat-form-field>
             <input matInput [matDatepicker]="picker" name="attachment_date" placeholder="Attachment Date" [(ngModel)]="model.attachment_date">
@@ -78,12 +78,12 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
-      </div>
+      </div> -->
       <div class="col-sm-6">
         <div class="form-group">
           <mat-form-field>
             <input matInput [matDatepicker]="picker1" name="start_date" placeholder="Start Date" [(ngModel)]="model.start_date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
           </mat-form-field>
         </div>
@@ -93,7 +93,7 @@
           <mat-form-field>
             <input matInput [matDatepicker]="picker2" name="estimated_delivery_date" placeholder="Estimated Delivery Date"
               [(ngModel)]="model.estimated_delivery_date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field>
         </div>
@@ -115,10 +115,35 @@
     </mat-form-field>
   </form>
   <div class="resource-container">
-    <h4>Add Resources</h4>
+    <!-- <h4>Development Managers</h4> -->
     <form class="form-content" #form1="ngForm">
-      <div class="row">
+      <div class="row" *ngFor="let manager of selectedManagers; let i = index;">
         <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field>
+              <mat-select placeholder="Development Managers" name="manager" [(ngModel)]="model.manager">
+                <mat-option value="mike">Mike</mat-option>
+                <mat-option value="jeorge">Jeorge</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field>
+              <input matInput [matDatepicker]="abc" [readonly]="true" name="attachment_date{{i}}" placeholder="Attachment Date" [(ngModel)]="manager.date">
+              <mat-datepicker-toggle matSuffix [for]="abc"></mat-datepicker-toggle>
+              <mat-datepicker #abc></mat-datepicker> 
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="cole-sm-6">
+          <div class="form-group" style="padding: 0 0 0 10px;">
+            <button mat-stroked-button (click)="removeAttachment(i)">Remove</button>
+            <button mat-stroked-button style="margin-left:10px;" color="primary" (click)="attachMore()">Attach</button>
+          </div>
+        </div>
+        <!-- <div class="col-sm-6">
           <div class="form-group">
             <mat-form-field>
               <mat-select placeholder="Select Resource" name="resource" [(ngModel)]="model.resource">
@@ -128,7 +153,7 @@
               </mat-select>
             </mat-form-field>
           </div>
-        </div>
+        </div> -->
         <div class="col-sm-6">
           <div class="form-group">
 
