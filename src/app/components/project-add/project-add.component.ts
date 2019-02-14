@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ProjectsModel } from '../../models/projects.model';
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-project-add',
@@ -13,13 +14,33 @@ export class ProjectAddComponent implements OnInit {
   opened = true;
   selectedManagers: {}[] = [];
   model: ProjectsModel = new ProjectsModel();
-  constructor(public toastr: ToastrService, public router: Router) { }
+  constructor(
+    public toastr: ToastrService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute,
+    public projectService: ProjectService
+  ) {
+    this.activatedRoute.params.subscribe(params => {
+      if (params["id"]) {
+        this.model["id"] = params["id"];
+        this.getProject();
+      }
+    });
+  }
 
   ngOnInit() {
     if (!this.model.id) {
       this.model.attachment_date = new Date();
       this.attachMore();
     }
+    else { // Edit Case
+      this.attachMore();
+    }
+  }
+
+  getProject() {
+    let project = this.projectService.getProjectById(this.model.id);
+    this.model = project;
   }
 
   onSubmit() {

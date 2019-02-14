@@ -3,6 +3,8 @@ import { Component, Input } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ProjectsModel } from '../models/projects.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class ProjectService {
   }
 
   getProjects() {
-    const ELEMENT_DATA = [
+    let ELEMENT_DATA = [
       { id: 1, business_office_id: 1, business: 'Import', client: 'Shane', client_id: 2, name: 'Import Links', number: 111, 
         cost: 2350, start_date: new Date(), updated_at: new Date(), payment_mode: 'Credit Card', run_level_name: '1',
         created_at: new Date(), created_by: 'James', deleted_at: new Date(), end_date: new Date(), 
@@ -118,5 +120,10 @@ export class ProjectService {
 
     return ELEMENT_DATA;
 
+  }
+
+  getProjectById(id): ProjectsModel {
+    let projects = this.getProjects();
+    return projects.find((item) => item.id == id);
   }
 }

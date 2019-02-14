@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProjectsModel } from '../../models/projects.model';
 import { ProjectService } from '../../services/project.service';
+import { Router } from '@angular/router';
 
 import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-project',
@@ -18,7 +20,7 @@ export class ProjectComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'business', 'client', 'cost', 'payment_mode', 'start_date', 'estimated_delivery_date', 'actions'];
 
 
-  constructor(public projectService: ProjectService) {
+  constructor(public projectService: ProjectService, public _router: Router) {
     this.dataSource = new MatTableDataSource(this.projectService.getProjects());
   }
 
@@ -35,12 +37,15 @@ export class ProjectComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  editProject() {
-    console.log('Edit.');
+  editProject(record) {
+    this._router.navigate(['/project/edit/' + record.id]);
   }
 
-  removeProject() {
-    console.log('Remove.');
+  removeProject(record) {
+    let filteredArray = this.dataSource.data.filter((item) => {
+      return item.id !== record.id;
+    });
+    this.dataSource.data = filteredArray;
   }
 
 }
