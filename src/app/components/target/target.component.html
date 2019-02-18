@@ -1,0 +1,19 @@
+<div class="card-header">
+  <mat-card>
+    <button mat-stroked-button style="background-color:#455a64; color: white;" routerLink="/target-add">
+      Add Target
+    </button>
+  </mat-card>
+</div>
+<div class="card-list" *ngFor="let target of targets; let i = index;">
+  <mat-card class="card-item">{{ target.title }}
+    <div class="pull-right">
+      <button mat-button (click)="editTarget(target)" tooltip="Edit">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-button (click)="removeTarget(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+</div>

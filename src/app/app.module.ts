@@ -9,7 +9,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { appRoutes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { materialModule } from './material-module';
-import { AppComponent, LayoutComponent, ProjectComponent, ProjectAddComponent } from './components/index';
+import { 
+  AppComponent, 
+  LayoutComponent, 
+  ProjectComponent, 
+  ProjectAddComponent, 
+  TargetComponent, 
+  TargetAddComponent 
+} from './components/index';
 import { ProjectService } from './services/project.service';
 
 @NgModule({
@@ -18,6 +25,8 @@ import { ProjectService } from './services/project.service';
     ProjectComponent,
     ProjectAddComponent,
     LayoutComponent,
+    TargetComponent,
+    TargetAddComponent,
   ],
   imports: [
     BrowserModule,

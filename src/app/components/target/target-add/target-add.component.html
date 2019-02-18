@@ -1,0 +1,69 @@
+<div class="action-bar" style="padding: 20px;">
+  <button mat-stroked-button style="background-color:#455a64; color: white;" (click)="cancel()">
+    <i class="fa fa-arrow-left"></i>&nbsp;Back
+  </button>
+</div>
+<div class="container">
+  <h4><strong>Target</strong></h4>
+  <form #targetFrom>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Title" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <mat-form-field>
+            <mat-select placeholder="Status" name="status" required>
+              <mat-option value="option">New</mat-option>
+              <mat-option value="option">In Progress</mat-option>
+              <mat-option value="option">Ready for Test</mat-option>
+              <mat-option value="option">Done</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <mat-form-field>
+            <mat-select placeholder="Type" name="type" required>
+              <mat-option value="assignment">Assignment</mat-option>
+              <mat-option value="user_story">User Story</mat-option>
+              <mat-option value="milestone">Milestone</mat-option>
+              <mat-option value="project">Project</mat-option>
+              <mat-option value="sprint">Sprint</mat-option>
+              <mat-option value="update">Update</mat-option>
+              <mat-option value="feature">Feature</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker1" name="start_date" placeholder="Start Date">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker2" name="end_date" placeholder="End Date">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="action-bar text-right">
+    <button mat-stroked-button (click)="cancel()">Cancel</button>
+    &nbsp;
+    <button mat-stroked-button color="primary" (click)="onSubmit()">Save</button>
+  </div>
+</div>

@@ -1,16 +1,21 @@
-.project-container {
-  display: flex;
+.container {
+  background: #eee;
+  padding: 30px;
+  box-shadow: 0px 4px 0px 0px #00000021;
+  margin-bottom: 20px;
+  /* display: flex;
   padding: 20px;
+  align-items: center;
   flex-direction: column;
-  background-color: #F5F5F5;
+  background-color: #F5F5F5; */
 }
 
-.project-container > * {
+.container>* {
   width: 100%;
   /* padding: 30px; */
 }
 
-.resource-container {
+.dm-container {
   border: 1px solid lightgray;
   display: flex;
   padding: 15px;
@@ -20,8 +25,12 @@
 }
 
 .form-actions {
-  display: inline; 
+  display: inline;
   align-items: right;
+}
+
+.tab-section {
+  margin: 10px 300px 10px 300px;
 }
 
 mat-form-field {
